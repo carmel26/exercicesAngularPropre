@@ -1,0 +1,33 @@
+ 
+ <div class="container">
+      <div class="row">
+           <div class="col-xs-12">
+              <h3>MOn Exercice</h3>
+               <hr>
+               <label for="">Username</label>
+               <input type="text" name="" class="form-control" [(ngModel)]="username"> 
+               <p>{{ username }} </p>
+               <button 
+               class="btn btn-info"
+               [disabled]="username===''"
+               (click)="username=''" >Reset User</button>
+               <hr>
+               <app-servers></app-servers>
+               <hr>
+               <!-- <button 
+               class="btn btn-link" 
+               (click)="showSecret = !showSecret">Display Details</button> -->
+
+               <button 
+               class="btn btn-link" 
+               (click)="onToggleDetails()">Display Details</button>
+               <p *ngIf="showSecret">Secret Password = tunapendana</p>
+               <div 
+               *ngFor="let logItem of log; let i = index"
+               [ngStyle]="{backgroundColor: i >= 4 ? 'blue':'transparent'}"
+               [ngClass]="{'white-text': i >=4}"
+               > {{logItem}} </div> 
+           </div>
+      </div>
+ </div>
+ 
